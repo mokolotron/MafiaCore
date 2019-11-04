@@ -18,12 +18,13 @@ using namespace std;
 class Core
 {
 protected:
-	vector<AbstractUnit> units;
+	vector<AbstractUnit> * units;
 	Score score;
 public:
 	Core()
 	{
-
+		
+		
 	}
 
 	void start() {
@@ -35,29 +36,29 @@ public:
 		
 	}
 
-	bool step()
+	void step()
 	{
-		for (int i = 0; i < units.size(); i++)
+		for (int i = 0; i < units->size(); i++)
 		{
-			units[i].step();
+			units->at(i).step();
 		}
-		
+	
 	}
 
 	int myrandom(int i) { return std::rand() % i; }
 
 	void create_units() {
 		for (int i = 0; i < score.get_amount(); i++)
-			if (units.size() == 0)
-				units.push_back(PoliceUnit(&score));
+			if (units->size() == 0)
+				units->push_back(PoliceUnit(&score));
 			else if (score.mafia_lead())
-				units.push_back(MafiaUnit(&score));
+				units->push_back(MafiaUnit(&score));
 			else if(!score.mafia_lead())
-				units.push_back(PacefullUnit(&score));
+				units->push_back(PacefullUnit(&score));
 
 		
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-		shuffle(units.begin(), units.end(), std::default_random_engine(seed));
+		shuffle(units->begin(), units->end(), std::default_random_engine(seed));
 	}
 
 	

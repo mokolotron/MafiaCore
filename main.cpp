@@ -1,8 +1,9 @@
 #include <iostream>
-#include "AbstractUnit.h"
-#include "Gamer.h"
+#include "Core.h"
+
 
 int main() {
-
+	Core * core = new Core;
+	core->start();
 	return 0;
 }

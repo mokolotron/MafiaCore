@@ -17,7 +17,7 @@ public:
 	};
 
 	void step() override {
-
+		cout << "step";
 	}
 
 };

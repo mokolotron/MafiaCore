@@ -21,7 +21,7 @@ public:
 		
 	}
 	~AbstractUnit();
-	virtual void step() = 0;
+	virtual void step() {};
 
 private:
 
