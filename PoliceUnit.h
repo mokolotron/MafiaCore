@@ -1,15 +1,20 @@
 #pragma once
-#include "AbstractUnit.h"
+#include "PacefullUnit.h"
 #include "Statuses.h"
-class PoliceUnit :	public AbstractUnit
+class PoliceUnit :	public PacefullUnit
 {
 public:
-	PoliceUnit() : AbstractUnit() {
-		statuses.role = police;
+	PoliceUnit() : PacefullUnit() {
+		/*statuses.team = pacefull;*/
 
 	};
 
-	void step() {
+	PoliceUnit(Score *score) : PacefullUnit(score) {
+		//statuses.team = pacefull;
+		//score->get_pacefulls();
+	};
+
+	void step() override {
 
 	}
 

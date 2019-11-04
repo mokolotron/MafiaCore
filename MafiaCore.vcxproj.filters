@@ -44,5 +44,8 @@
     <ClInclude Include="Statuses.h">
       <Filter>Header Files\Units</Filter>
     </ClInclude>
+    <ClInclude Include="PacefullUnit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

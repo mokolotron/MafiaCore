@@ -5,7 +5,7 @@ using namespace std;
  static class Gamer
 {
 public:
-	static int get_number_player() {
+	static int getAmountPlayers() {
 		 int number;
 		 cin >> number;
 		 return number;
