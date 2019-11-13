@@ -1,26 +1,22 @@
 #pragma once
 #include  "Statuses.h"
 
-
 class AbstractUnit
 {
 protected:
 	Statuses statuses;
-	Score* score ;
+	//Score* score;
 
 public:
-	AbstractUnit() {
+
+	AbstractUnit(Team team) {
+		//this->score = score;
 		statuses.isLive = true;
 		statuses.isStaned = false;
+		statuses.set_team(team);
 	}
 
-	AbstractUnit(Score *score) {
-		this->score = score;
-		statuses.isLive = true;
-		statuses.isStaned = false;
-		
-	}
-	~AbstractUnit();
+	~AbstractUnit() {};
 	virtual void step() {};
 
 private:

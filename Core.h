@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <random>
 #include <chrono>
+#include "Score.h"
 #define TEAM_DELIVERY 0.3
 using namespace std;
 
@@ -19,21 +20,20 @@ class Core
 {
 protected:
 	vector<AbstractUnit> * units;
-	Score score;
+	
 public:
 	Core()
 	{
-		
-		
+		units = new vector<AbstractUnit>;
 	}
 
 	void start() {
-		score.set_amount(Gamer::getAmountPlayers());
+		
+		Score::set_amount(Gamer::getAmountPlayers());
 		create_units();
-		while (score.end_game()) {
+		while (Score::end_game()) {
 			step();
 		}
-		
 	}
 
 	void step()
@@ -48,15 +48,15 @@ public:
 	int myrandom(int i) { return std::rand() % i; }
 
 	void create_units() {
-		for (int i = 0; i < score.get_amount(); i++)
+		for (int i = 0; i < Score::get_amount(); i++)
 			if (units->size() == 0)
-				units->push_back(PoliceUnit(&score));
-			else if (score.mafia_lead())
-				units->push_back(MafiaUnit(&score));
-			else if(!score.mafia_lead())
-				units->push_back(PacefullUnit(&score));
+				units->push_back(PoliceUnit());
+			else if (Score::mafia_lead())
+				units->push_back(MafiaUnit());
+			else if(!Score::mafia_lead())
+				units->push_back(PacefullUnit());
 
-		
+		//!!!
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 		shuffle(units->begin(), units->end(), std::default_random_engine(seed));
 	}

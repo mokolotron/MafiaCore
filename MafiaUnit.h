@@ -1,22 +1,18 @@
 #pragma once
 #include "AbstractUnit.h"
-#include "Statuses.h"
+#include "Score.h"
 class MafiaUnit : public AbstractUnit
 {
 public:
-	MafiaUnit() : AbstractUnit() {
-		statuses.team = mafia;
 
-	};
-
-	MafiaUnit(Score *score) : AbstractUnit(score) {
-		statuses.team = mafia;
-		score->inc_mafia();
+	MafiaUnit() : AbstractUnit(Team::mafia) {
+	//	statuses.team = mafia;
+		Score::inc_mafia();
 	};
 
 	void step() override {
 
 	}
-
+		
 };
 

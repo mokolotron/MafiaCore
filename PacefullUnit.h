@@ -5,15 +5,11 @@ class PacefullUnit : public AbstractUnit
 {
 	
 public:
-	PacefullUnit() : AbstractUnit() {
-		statuses.team = pacefull;
 
-	};
 
-	PacefullUnit(Score *score) : AbstractUnit(score) {
-	
-		statuses.team = pacefull;
-		score->inc_pacefull();
+	PacefullUnit() : AbstractUnit(Team::pacefull) {
+		//statuses.team = pacefull;
+		Score::inc_pacefull();
 	};
 
 	void step() override {

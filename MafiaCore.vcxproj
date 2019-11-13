@@ -133,7 +133,11 @@
     <ClInclude Include="MafiaUnit.h" />
     <ClInclude Include="PacefullUnit.h" />
     <ClInclude Include="PoliceUnit.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Statuses.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="task.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
