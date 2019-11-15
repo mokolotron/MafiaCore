@@ -1,5 +1,6 @@
 #pragma once
-
+#include <string>
+#include  <sstream>
 #define TEAM_DELIVERY 0.3
 class Score {
 public:
@@ -28,12 +29,19 @@ public:
 	static void dec_amount() { amount--; }
 
 	static bool mafia_lead() { 
-		return (((mafia / amount) + (mafia % amount)) < TEAM_DELIVERY);
+        return (((mafia / amount) + (mafia % amount)) > TEAM_DELIVERY);
 	}
 
 	static bool end_game() {
 		if (pacefulls && mafia) return false;
 	}
+
+  std::string static toString(){
+      using namespace std;
+      stringstream ss;
+      ss << Score::mafia << " pac: " << Score::pacefulls << " amout: " << Score::amount;
+      return string(ss.str());
+    }
 
 };
 

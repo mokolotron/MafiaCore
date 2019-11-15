@@ -10,7 +10,8 @@ public:
          NumberInput ni;
          ni.setModal(true);
          ni.exec();
-         return 5;
+         return  ni.get_number();
+         //return 5;
 	 }
 };
 

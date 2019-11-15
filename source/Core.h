@@ -50,21 +50,19 @@ public:
 	int myrandom(int i) { return std::rand() % i; }
 
 	void create_units() {
-		for (int i = 0; i < Score::get_amount(); i++)
+        for (int i = 0; i < Score::get_amount(); i++){
 			if (units->size() == 0)
 				units->push_back(PoliceUnit());
-			else if (Score::mafia_lead())
+            else if (!Score::mafia_lead())
 				units->push_back(MafiaUnit());
-			else if(!Score::mafia_lead())
+            else if(Score::mafia_lead())
 				units->push_back(PacefullUnit());
+
+          string debug =  Score::toString();
+        }
 
 
 		std::random_shuffle(units->begin(), units->end());
 	}
-
-	
-
-	
-
 
 };

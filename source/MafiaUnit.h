@@ -8,7 +8,7 @@ public:
 	MafiaUnit() : AbstractUnit(Team::mafia) {
 	//	statuses.team = mafia;
 		Score::inc_mafia();
-	};
+    }
 
 	void step() override {
 
