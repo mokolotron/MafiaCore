@@ -2,15 +2,12 @@
 #include "PacefullUnit.h"
 #include "Statuses.h"
 #include "Score.h"
+#include "Gamer.h"
 class PoliceUnit :	public PacefullUnit
 {
 public:
-	PoliceUnit() : PacefullUnit() {
-		//statuses.team = pacefull;
-		Score::inc_pacefull();
-	};
-	void step() override {
-
-	}
+    PoliceUnit();
+    int step( DayParts daypart ) override;
 };
+
 

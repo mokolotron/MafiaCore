@@ -9,11 +9,16 @@ class NumberInput;
 
 class NumberInput : public QDialog
 {
-    int number;
+    int policeN;
+    int mafiaN;
+    int pacefullN;
     Q_OBJECT
 
 public:
-   int get_number();
+   int get_policeN();
+   int get_mafiaN();
+   int get_pacefullN();
+
     explicit NumberInput(QWidget *parent = nullptr);
     ~NumberInput();
 

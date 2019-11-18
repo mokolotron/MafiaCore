@@ -1,4 +1,5 @@
 #pragma once
+#include "Gamer.h"
 #include  "Statuses.h"
 
 class AbstractUnit
@@ -8,17 +9,14 @@ protected:
 	//Score* score;
 
 public:
+    AbstractUnit(Team team);
 
-	AbstractUnit(Team team) {
-		//this->score = score;
-		statuses.isLive = true;
-		statuses.isStaned = false;
-		statuses.set_team(team);
-	}
+    virtual ~AbstractUnit() {}
 
-	~AbstractUnit() {};
-    virtual void step() {};
+    virtual int step(DayParts daypart) = 0;
 
 private:
-
+    static int CountUnits;
 };
+
+

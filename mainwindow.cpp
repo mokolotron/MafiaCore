@@ -16,6 +16,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::display()
+{
+    //delete button
+    ui->pushButton->setAttribute(Qt::WA_DeleteOnClose);
+    ui->pushButton->close();
+
+
+}
+
 
 void MainWindow::on_pushButton_clicked()
 {

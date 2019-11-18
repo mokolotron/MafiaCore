@@ -2,20 +2,16 @@
 #include "AbstractUnit.h"
 #include "Statuses.h"
 #include "Score.h"
+#include "Gamer.h"
 class PacefullUnit : public AbstractUnit
 {
 	
 public:
 
 
-	PacefullUnit() : AbstractUnit(Team::pacefull) {
-		//statuses.team = pacefull;
-		Score::inc_pacefull();
-    }
+    PacefullUnit();
 
-	void step() override {
-        //cout << "step";
-	}
+    int step(DayParts daypart) override;
 
 };
 

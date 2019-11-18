@@ -1,4 +1,6 @@
 #pragma once
+#include "debug_widget.h"
+
 #include <string>
 #include  <sstream>
 #define TEAM_DELIVERY 0.3
@@ -28,12 +30,11 @@ public:
 	static void dec_mafia() { mafia--; }
 	static void dec_amount() { amount--; }
 
-	static bool mafia_lead() { 
-        return (((mafia / amount) + (mafia % amount)) > TEAM_DELIVERY);
-	}
+
 
 	static bool end_game() {
-		if (pacefulls && mafia) return false;
+        if (pacefulls && mafia) return false;
+        else return true;
 	}
 
   std::string static toString(){

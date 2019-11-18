@@ -6,6 +6,7 @@
 int Score::amount = 0;
 int Score::mafia = 0;
 int Score::pacefulls = 0;
+int AbstractUnit :: CountUnits = 0;
 
 int main(int argc, char *argv[])
 {

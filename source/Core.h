@@ -13,6 +13,7 @@
 #include <mainwindow.h>
 #include "Score.h"
 #include <QApplication>
+#include <string>
 #define TEAM_DELIVERY 0.3
 using namespace std;
 
@@ -21,47 +22,55 @@ using namespace std;
 class Core
 {
 protected:
-	vector<AbstractUnit> * units;
+    vector<AbstractUnit*> * units;
 	
 public:
 	Core()
 	{
-		units = new vector<AbstractUnit>;
+        units = new vector<AbstractUnit*>;
 	}
 
     void start() {
+        //find amount
+        map<string, int> Teams = Gamer::getPlayers();
+        int amount = 0;
+        for(auto el : Teams){
+            amount += el.second;
+        }
+        Score::set_amount(amount);
 
-		Score::set_amount(Gamer::getAmountPlayers());
-		create_units();
-		while (Score::end_game()) {
-			step();
+        create_units(Teams);
+        DayParts daypart =  DayParts::day;
+
+
+        while (!Score::end_game()) {
+            step(daypart);
+            daypart = ++daypart;
 		}
+
+
 	}
 
-	void step()
+    void step(DayParts daypart)
 	{
 		for (int i = 0; i < units->size(); i++)
 		{
-			units->at(i).step();
+            units->at(i)->step(daypart);
 		}
-	
-	}
+    }
 
-	int myrandom(int i) { return std::rand() % i; }
-
-	void create_units() {
-        for (int i = 0; i < Score::get_amount(); i++){
-			if (units->size() == 0)
-				units->push_back(PoliceUnit());
-            else if (!Score::mafia_lead())
-				units->push_back(MafiaUnit());
-            else if(Score::mafia_lead())
-				units->push_back(PacefullUnit());
-
-          string debug =  Score::toString();
+    void create_units(map<string, int> Teams) {
+        map<string, int>::iterator it = Teams.begin();
+        for (int i = 0; i < Score::get_amount(); i++ ){
+            if (it->first == "police"){
+                units->push_back(new PoliceUnit());
+                }
+            else if (it->first == "mafia")
+                units->push_back(new MafiaUnit());
+            else if(it->first == "pacefull")
+                units->push_back(new PacefullUnit());
+            it++;
         }
-
-
 		std::random_shuffle(units->begin(), units->end());
 	}
 

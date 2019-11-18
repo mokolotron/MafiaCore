@@ -7,22 +7,71 @@
     <x>0</x>
     <y>0</y>
     <width>240</width>
-    <height>90</height>
+    <height>127</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Input number of players</string>
+      <string>Input number of roles</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input"/>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Police</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Mafia</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>26</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Pacefull</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLineEdit" name="input_1"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_2"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_3">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

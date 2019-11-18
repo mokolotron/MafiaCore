@@ -18,7 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    numberinput.cpp
+    numberinput.cpp \
+    source/AbstractUnit.cpp \
+    source/MafiaUnit.cpp \
+    source/PacefullUnit.cpp \
+    source/PoliceUnit.cpp \
+    source/debug_widget.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -30,11 +35,13 @@ HEADERS += \
     source/PacefullUnit.h \
     source/PoliceUnit.h \
     source/Score.h \
-    source/Statuses.h
+    source/Statuses.h \
+    source/debug_widget.h
 
 FORMS += \
     mainwindow.ui \
-    numberinput.ui
+    numberinput.ui \
+    source/debug_widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
