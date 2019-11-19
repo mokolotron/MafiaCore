@@ -53,6 +53,15 @@ public:
 
 	}
 
+    void kill(int id){
+        for( vector<AbstractUnit*>::iterator el = units->begin(); el != units->end(); el++){
+            if((*el)->get_id() == id) {
+                (*el)->~AbstractUnit();
+                //delete * el;
+                el =  units->erase(el);
+            };
+        }
+    }
 
 
     void step(DayParts daypart)
@@ -65,15 +74,12 @@ public:
             round_res.at(id) += 1;  //collect votes in round
         }
 
-        //delete unit with mosts votes
+        //find unit with mosts votes
         vector<int>::iterator it = max_element(round_res.begin(), round_res.end());
         int distatnce_to_el = distance(round_res.begin(), it);
-        for(AbstractUnit *el: *units){
-            if(el->get_id() == distatnce_to_el) el->~AbstractUnit();
-        }
 
-
-    }
+        kill(distatnce_to_el);
+     }
 
     void create_units(map<string, int> Teams) {
         map<string, int>::iterator it = Teams.begin();
