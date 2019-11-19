@@ -14,6 +14,8 @@
 #include "Score.h"
 #include <QApplication>
 #include <string>
+
+
 #define TEAM_DELIVERY 0.3
 using namespace std;
 
@@ -51,12 +53,26 @@ public:
 
 	}
 
+
+
     void step(DayParts daypart)
 	{
-		for (int i = 0; i < units->size(); i++)
+        vector<int> round_res(units->size(), int(0));
+
+        for (int i = 0; i < units->size(); i++)
 		{
-            units->at(i)->step(daypart);
-		}
+            int id = units->at(i)->step(daypart);
+            round_res.at(id) += 1;  //collect votes in round
+        }
+
+        //delete unit with mosts votes
+        vector<int>::iterator it = max_element(round_res.begin(), round_res.end());
+        int distatnce_to_el = distance(round_res.begin(), it);
+        for(AbstractUnit *el: *units){
+            if(el->get_id() == distatnce_to_el) el->~AbstractUnit();
+        }
+
+
     }
 
     void create_units(map<string, int> Teams) {
@@ -73,5 +89,8 @@ public:
         }
 		std::random_shuffle(units->begin(), units->end());
 	}
+
+private:
+
 
 };

@@ -16,5 +16,11 @@ int AbstractUnit::step(DayParts daypart) {
     if(daypart == day){
         vote = Gamer::vote(statuses.id, statuses.team);
     }
+
+
     return vote; //succsefull
+}
+
+int AbstractUnit :: get_id() {
+    return statuses.id;
 }

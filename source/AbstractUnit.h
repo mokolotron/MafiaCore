@@ -15,8 +15,11 @@ public:
 
     virtual int step(DayParts daypart) = 0;
 
+    int get_id();
 private:
     static int CountUnits;
 };
+
+
 
 

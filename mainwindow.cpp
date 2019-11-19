@@ -30,4 +30,12 @@ void MainWindow::on_pushButton_clicked()
 {
     Core * core = new Core;
         core->start();
+//    try {
+
+//    } catch (exception) {
+
+//    }
+
+
+
 }
