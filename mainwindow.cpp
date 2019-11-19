@@ -19,8 +19,9 @@ MainWindow::~MainWindow()
 void MainWindow::display()
 {
     //delete button
-    ui->pushButton->setAttribute(Qt::WA_DeleteOnClose);
-    ui->pushButton->close();
+//    ui->pushButton->setAttribute(Qt::WA_DeleteOnClose);
+//    ui->pushButton->close();
+
 
 
 }

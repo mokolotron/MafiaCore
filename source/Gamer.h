@@ -25,7 +25,7 @@ public:
 	 }
 
      static int vote(int id, Team team){
-        //get units from Coreb
+         //get units from Coreb
       return 0;
      }
 

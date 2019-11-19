@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    game_table.cpp \
     main.cpp \
     mainwindow.cpp \
     numberinput.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     source/debug_widget.cpp
 
 HEADERS += \
+    game_table.h \
     mainwindow.h \
     numberinput.h \
     source/AbstractUnit.h \
@@ -39,6 +41,7 @@ HEADERS += \
     source/debug_widget.h
 
 FORMS += \
+    game_table.ui \
     mainwindow.ui \
     numberinput.ui \
     source/debug_widget.ui

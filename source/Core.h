@@ -77,7 +77,6 @@ public:
         //find unit with mosts votes
         vector<int>::iterator it = max_element(round_res.begin(), round_res.end());
         int distatnce_to_el = distance(round_res.begin(), it);
-
         kill(distatnce_to_el);
      }
 
